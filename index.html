@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analisis trimestral</title>
+    <link rel="stylesheet" href="styles.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   <link rel="shortcut icon" href="imagenes/titulo" type="image/x-icon">
+</head>
+<body>
+  
+<div class="titulo">
+  <div class="fondo1"></div>
+  <div class="fondo2"></div>
+  <div class="fondo3"></div>
+</div>
+
+<div class="contenedor-año">
+  <label for="año-select">año actual</label>
+  <select name="año" id="año">
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+      <option value="2029">2029</option>
+      <option value="2030">2030</option>
+      <option value="2031">2031</option>
+      <option value="2032">2032</option>
+      <option value="2033">2033</option>
+      <option value="2034">2034</option>
+      <option value="2035">2035</option>
+      <option value="2036">2036</option>
+      <option value="2037">2037</option>
+      <option value="2038">2038</option>
+      <option value="2039">2039</option>
+      <option value="2040">2040</option>
+  </select><br>
+</div>
+
+<div class="contenedor-select-trimestre">
+  <label for="trimestre-select">Selecciona un trimestre:</label>
+  <select id="trimestre-select">
+    <option value="t1">1er trimestre (T1): enero - febrero - marzo</option>
+    <option value="t2">2do trimestre (T2): abril - mayo - junio</option>
+    <option value="t3">3er trimestre (T3): julio - agosto - septiembre</option>
+    <option value="t4">4to trimestre (T4): octubre - noviembre - diciembre</option>
+  </select><br>
+</div>
+
+
+
+<input class="input-capital" id="capital-inicial" type="number" placeholder="capital inical del trimestre">
+
+
+<div class="meses-container">
+  <fieldset>
+    <legend>Mes 1</legend>
+    <label for="realizadas1">Operaciones realizadas</label>
+    <input type="number" id="realizadas1" class="realizadas"><br>
+    <label for="ganadoras1">Operaciones ganadoras</label>
+    <input type="number" id="ganadoras1" class="ganadoras"><br>
+    <label for="perdedoras1">Operaciones perdedoras</label>
+    <input type="number" id="perdedoras1" class="perdedoras"><br>
+    <label for="breakeven1">Operaciones en breakeven</label>
+    <input type="number" id="breakeven1"><br>
+    <label for="netogan1">Neto ganancias</label>
+    <input type="number" id="netogan1"><br>
+    <label for="netoperd1">Neto perdidas</label>
+    <input type="number" id="netoperd1"><br>
+  </fieldset>
+  <fieldset>
+    <legend>Mes 2</legend>
+    <label for="realizadas2">Operaciones realizadas</label>
+    <input type="number" id="realizadas2" class="realizadas"><br>
+    <label for="ganadoras2">Operaciones ganadoras</label>
+    <input type="number" id="ganadoras2" class="ganadoras"><br>
+    <label for="perdedoras2">Operaciones perdedoras</label>
+    <input type="number" id="perdedoras2" class="perdedoras"><br>
+    <label for="breakeven2">Operaciones en breakeven</label>
+    <input type="number" id="breakeven2"><br>
+    <label for="netogan2">Neto ganancias</label>
+    <input type="number" id="netogan2"><br>
+    <label for="netoperd2">Neto perdidas</label>
+    <input type="number" id="netoperd2"><br>
+  </fieldset>
+  <fieldset>
+    <legend>Mes 3</legend>
+    <label for="realizadas3">Operaciones realizadas</label>
+    <input type="number" id="realizadas3" class="realizadas"><br>
+    <label for="ganadoras3">Operaciones ganadoras</label>
+    <input type="number" id="ganadoras3" class="ganadoras"><br>
+    <label for="perdedoras3">Operaciones perdedoras</label>
+    <input type="number" id="perdedoras3" class="perdedoras"><br>
+    <label for="breakeven3">Operaciones en breakeven</label>
+    <input type="number" id="breakeven3"><br>
+    <label for="netogan3">Neto ganancias</label>
+    <input type="number" id="netogan3"><br>
+    <label for="netoperd3">Neto perdidas</label>
+    <input type="number" id="netoperd3"><br>
+  </fieldset>
+</div><br>
+
+<div class="datos-y-errores">
+  
+  <div class="datos-extra">
+    <div class="form-bloque">
+      <label for="racha-p">Mayor racha de pérdidas consecutivas:</label>
+      <input type="number" id="racha-p" placeholder="#"><br>
+    </div>
+    <div class="form-bloque">
+      <label for="neto-p">Costo total de la pérdida consecutiva estimada:</label>
+      <input type="number" id="neto-p" placeholder="pérdida"><br>
+    </div>
+    <div class="form-bloque">
+      <label for="racha-g">Mayor racha de ganancias consecutivas:</label>
+      <input type="number" id="racha-g" placeholder="#"><br>
+    </div>
+    <div class="form-bloque">
+      <label for="neto-g">Ganancia total de la ganancia consecutiva:</label>
+      <input type="number" id="neto-g" placeholder="ganancia"><br>
+    </div>
+  </div>
+
+  <section class="operaciones-lista">
+    <label for="tipo-error">Tipo de error:</label>
+    <select id="tipo-error">
+              
+      <!--1--> <option value="Reentrada">Reentrada</option>
+      <!--2-->  <option value="Sobre-complicación">Sobre complicación</option>
+      <!--3-->  <option value="Timing-adelantado">Timing adelantado</option>
+      <!--4-->  <option value="mala-lectura-del-flujo-institucional">mala lectura del flujo institucional</option>
+      <!--5-->  <option value="Reducir-el-sl-sin-razón-válida">reducir el sl sin razon valida</option>
+      <!--6-->  <option value="No-ejecutar">No ejecutar</option>
+      <!--7-->  <option value="Error-por-vacio-conceptual">Error por vacio conceptual</option>
+      <!--8-->  <option value="Interrupciones-externas">Interrupciones externas</option>
+      <!--9-->  <option value="Salida-prematura-de-operación-que-llegaría-a-TP">Salida prematura de operación que llegaría a TP</option>
+      <!--10-->  <option value="Enfoque/disciplina">Enfoque/disciplina</option>
+      <!--11-->  <option value="Error-por-analizar-según-el-sentimiento/sesgo-y-no-según-lectura-de-mercado">Error por analizar según el sentimiento/sesgo y no según lectura de mercado</option>
+      <!--12-->  <option value="Cambiar-dirección-solo-por-perder-la-operación-anterior">Cambiar dirección solo por perder la operación anterior</option>
+      <!--13-->  <option value="oportunidad-perdida-por-no-levantarte-temprano">Oportunidad perdida por no levantarte temprano</option>
+      <!--14--> <option value="oportunidad">No ver la oportunidad</option>
+
+    </select>
+
+    <label for="cantidad-error"> Número de veces:</label>
+    <input type="number" id="cantidad-error" min="1" placeholder="Ej: 2">
+    <button onclick="agregarError()">Agregar error</button>
+    <ul id="lista-errores"></ul>
+
+  </section>
+</div>
+
+<div class="resumen-trimestral">
+
+  <button onclick="generarResumenTrimestral()">Generar resumen trimestral</button>
+  <div id="resumenTrimestral"></div>
+  <button id="btnExportarImagen">Exportar resumen como imagen</button>
+
+</div>
+
+<script src="java.js"></script>
+</body>
+</html>

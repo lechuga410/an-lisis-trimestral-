@@ -1,0 +1,383 @@
+body {
+    text-align: center;
+    font-family: cursive;
+}
+/*-----------------------------------------------------------------------------------------------/*
+/* Animación de fondo para el título 
+*/
+.titulo {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;  /* oculta los bordes de los fondos que se salen */
+  margin-bottom: 50px;
+  box-shadow: 0 100px 100px #797871;
+  box-shadow: 0 0 30px #7a7972, 0 0 50px #6b6b62, 0 0 70px #75746f;
+ box-shadow: #8820ff 0px 0px 10px, #4700b9 0px 0px 120px;
+  border: #7577f3 2px solid;
+
+}
+/* Fondos animados */
+.fondo1, .fondo2, .fondo3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;            /* para repetir horizontalmente */
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: auto 100%;  /* mantiene proporción */
+}
+/* Cada fondo con su imagen y velocidad */
+.fondo1 {
+  background-image: url('imagenes/titulo');
+  animation: moverFondo1 30s linear infinite;
+}
+.fondo2 {
+  background-image: url('imagenes/titulo');
+  animation: moverFondo2 50s linear infinite; /* más lento para parallax */
+}
+.fondo3 {
+  background-image: url('imagenes/titulo');
+  animation: moverFondo3 70s linear infinite; /* aún más lento */
+}
+/* Animaciones de cada fondo */
+@keyframes moverFondo1 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* mitad de ancho, loop perfecto */
+}
+@keyframes moverFondo2 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes moverFondo3 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*SELECCIONAR AÑO*/
+.contenedor-año {
+ margin-top: 50px;
+ background-image: url(imagenes/nubes.jpg);
+ min-height: 100px;           /* asegura que el fondo se vea */
+ background-size: contain;      /* cubre todo el contenedor */
+ padding: 50px;
+ 
+}
+#año {
+  width: 200px;      /* ancho */
+  padding: 8px;      /* espacio interno */
+  border: 2px solid #0099ff;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  font-size: 16px;
+  cursor: pointer;
+  appearance: none;       /* quita estilo del navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #f0f8ff url('flecha.svg') no-repeat right 10px center;
+}
+.contenedor-año label {
+  color: darkblue;
+  text-shadow: 0px 0px 10px darkturquoise, 
+  0px 0px 20px deepskyblue;
+}
+.contenedor-año select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 139, 0.5);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  
+} 
+/*-----------------------------------------------------------------------------------------------/*
+/*SELECCIONAR TRIMESTRE*/
+.contenedor-select-trimestre{
+  margin: 50px;
+}
+#trimestre-select{
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #f0f8ff;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  border-color: #090dfd;
+  box-shadow: 0 0px 6px rgb(12, 8, 238);
+  transition: all 0.3s ease;
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*capital*/
+.input-capital {
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #362cbd;
+  box-shadow: 0 2px 6px rgb(238, 8, 8);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+/*-----------------------------------------------------------------------------------------------/*
+/* mes1 mes2 mes3 */
+.meses-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.meses-container fieldset {
+  background-color: rgb(255, 255, 255); /* evita gris por default */
+  box-shadow: inset 0 0 10px rgba(0, 38, 255, 0.133); /* sombra interior */
+}
+fieldset {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #c9bebe;     
+}
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--color-secondary);
+  
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*div padre de datos y tipos de errores para unirlos*/
+.datos-y-errores {
+  display: flex;
+  justify-content: space-around; /* espacio entre los dos bloques */
+  align-items: flex-start;       /* alinea arriba */
+  gap: 40px;                     /* espacio entre bloques */
+  flex-wrap: wrap;               /* si no cabe, baja a la siguiente línea */
+  margin: 20px auto;
+  max-width: 1200px;             /* ancho máximo para que no se extienda demasiado en pantallas grandes */
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*datos extra*/
+.datos-extra {
+  text-align: center;
+}
+.form-bloque {
+  padding: 15px;
+  border-radius: 8px;
+}
+.form-bloque label {
+  font-weight: 600;
+  color: #000000;
+}
+.form-bloque input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.form-bloque input:focus {
+  border-color: #25fd09;
+}
+/* 🔹 Cuando un input dentro del bloque está en focus → cambia el label */
+.form-bloque:focus-within label {
+  color: #0ec2e2;
+  text-shadow: 
+    -1px -1px 0 #000000,
+     1px -1px 0 #ff4848,
+    -1px  1px 0 #8820ff,
+     1px  1px 0 #5ee703;
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*tipos de errores*/
+.operaciones-lista {
+  margin-top: 10px;          /* Deja un espacio arriba */
+  padding: 10px;             /* Espacio interno */
+  background-color: #ffffff; /* Fondo gris muy claro */
+  border-radius: 4px;        /* Esquinas suavemente redondeadas */
+}
+.error-tipo {
+  font-weight: 600;
+  color: #333;
+}
+.error-cantidad {
+  background: #f15641;     /* verde para la cantidad */
+  color: white;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 12px;
+  min-width: 28px;
+  text-align: center;
+}
+#lista-errores {
+  list-style-type: none; /* Quita los punticos negros de la lista <ul> */
+  padding: 0;            /* Quita el espacio interno */
+  margin-top: 10px;      /* Deja un espacio arriba de la lista */
+}
+#lista-errores li {
+  display: flex;
+  justify-content: space-between; /* error a la izq, cantidad a la der */
+  align-items: center;
+  background: #fff3f3;        /* Fondo rojo muy clarito */
+  border: 1px solid #bbf7e8;  /* Borde rojo claro */
+  padding: 8px 12px;          /* Espacio interno (8 arriba/abajo, 12 izquierda/derecha) */
+  border-radius: 4px;         /* Esquinas redondeadas */
+  margin-bottom: 10px;         /* Separación entre cada error de la lista */
+  font-size: 14px;            /* Tamaño del texto */
+  color: rgb(35, 112, 255);                /* Color del texto rojo oscuro */
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*resumen trimestral*/
+#resumenTrimestral {
+  background: #f4f8fb;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 1100px;
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+#resumenTrimestral h2 {
+  color: #2a4d69;
+  margin-bottom: 20px;
+}
+#resumenTrimestral b {
+  color: #1b2b34;
+}
+#resumenTrimestral fieldset {
+  background: #eaf6fb;
+  border: 2px solid #b3cde0;
+  min-width: 220px;
+  max-width: 260px;
+}
+#resumenTrimestral legend {
+  font-weight: bold;
+  color: #20639b;
+  font-size: 1.1em;
+}
+#resumenTrimestral-content {
+  background-color: white; /* color uniforme */
+  padding: 20px;
+  border-radius: 10px;
+}
+.resumen-metricas {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 95%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.resumen-metricas th, .resumen-metricas td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+.resumen-metricas th {
+  background: #eaf6fb;
+  color: #20639b;
+  font-size: 1.08em;
+}
+.resumen-metricas tr:last-child td {
+  border-bottom: none;
+}
+.resumen-metricas td.valor-positivo { color: #2ecc71; font-weight: bold; }
+.resumen-metricas td.valor-negativo { color: #e74c3c; font-weight: bold; }
+table, th, td {
+  border: 2px solid black; /* 2px de grosor y negro */
+  padding: 8px; /* Espacio dentro de celdas */
+}
+.resumen-metricas {
+  border-collapse: separate; /* ¡importante! permite bordes redondeados */
+  border-spacing: 0;         /* sin espacios entre celdas */
+  border: 2px solid black;   /* borde exterior negro */
+  border-radius: 12px;       /* esquinas redondeadas */
+  overflow: hidden;          /* hace que las celdas no sobresalgan del borde */
+  width: 95%;
+  max-width: 600px;
+  background: white;
+}
+.resumen-metricas th, .resumen-metricas td {
+  border-bottom: 1px solid black; /* línea negra debajo de cada fila */
+  border-right: 1px solid black;  /* opcional: línea vertical */
+  padding: 10px 12px;
+  text-align: left;
+}
+.resumen-metricas th:last-child, .resumen-metricas td:last-child {
+  border-right: none; /* quitar línea extra a la derecha */
+}
+.resumen-metricas tr:last-child td {
+  border-bottom: none; /* si quieres que la última fila tenga borde, quita esto */
+}
+/*-----------------------------------------------------------------------------------------------/*
+/*contruccion resumen js*/
+#datos-generales {
+  margin: 30px auto 20px auto;
+  max-width: 600px;
+  padding: 24px 28px;
+  background: #eaf6fb;
+  border-radius: 14px;
+  font-size: 1.13em;
+  line-height: 1.8;
+  text-align: left;
+  border: 2px solid #b3cde0;
+  transition: box-shadow 0.2s;
+}
+#datos-generales ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#datos-generales li {
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #d0e6f7;
+}
+#datos-generales li:last-child {
+  border-bottom: none;
+}
+#datos-generales b {
+  color: #20639b;
+}
+#datos-generales li b {
+  min-width: 180px;
+  display: inline-block;
+}
+#datos-generales li {
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/*-----------------------------------------------------------------------------------------------/*
+/*botones/label*/
+label {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+}
+input[type="number"] {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 8px;
+}
+
+button {
+  padding: 10px 20px;   /* Espacio interno del botón (arriba/abajo 10px, izquierda/derecha 20px). Hace que el texto no quede pegado al borde */
+  margin: 8px 0;        /* Espacio externo del botón (arriba/abajo 8px, izquierda/derecha 0). Separa el botón de otros elementos */
+  background-color: #4CAF50; /* Color de fondo (verde) */
+  color: white;         /* Color del texto dentro del botón */
+  border: none;         /* Sin borde visible */
+  border-radius: 6px;   /* Esquinas redondeadas (más suave el rectángulo) */
+  cursor: pointer;      /* Cuando pasas el mouse, aparece la mano en lugar de la flecha */
+  font-weight: 500;     /* Grosor del texto (500 = seminegrita, no tan delgado ni tan grueso) */
+  transition: all 0.3s ease; 
+  /* Suaviza cualquier cambio (por ejemplo, si cambias color en hover,
+  no es brusco, tarda 0.3 segundos y se ve animado) */
+}
+button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el mouse (un verde un poco más oscuro) */
+}
+input, select {
+padding: 10px 12px;   /* Espacio interno: el texto dentro del input no queda pegado a los bordes */  
+margin: 8px 0;      /* Espacio externo: separación entre inputs hacia arriba y abajo (8px), izquierda y derecha (0) */     
+width: 100%;        /* El input ocupa todo el ancho del contenedor padre */     
+box-sizing: border-box;  /* Hace que el ancho (width) incluya también el padding y el borde. Sin esto, el input podría crecer más de lo esperado. */
+border: 1px solid #ddd;  /* Borde gris clarito de 1px */
+border-radius: 6px;      /* Esquinas redondeadas, se ve más moderno */
+font-size: 15px;        /* Tamaño del texto dentro del input */ 
+}
